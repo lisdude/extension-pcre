@@ -1,3 +1,6 @@
+Sparse documentation:
+
+```
 Syntax:	  pcre_match (STR <subject>, STR <pattern> [, <case matters> 0] [, <repeat until no matches> 1]	=> LIST
 
 The function `pcre_match()' searches <subject> for <pattern> using the Perl Compatible Regular Expressions library. The return value is a list of maps containing each match. Each returned map will have a key which corresponds to either a named capture group or the number of the capture group being matched. The full match is always found in the key "0". The value of each key will be another map containing the keys 'match' and 'position'. Match corresponds to the text that was matched and position will return the indices of the substring within <subject>.
@@ -15,3 +18,4 @@ pcre_match("09/12/1999 other random text 01/21/1952", "([0-9]{2})/([0-9]{2})/([0
 Explode a string (albeit a contrived example):
 ;;ret = {}; for x in (pcre_match("This is a string of words, with punctuation, that should be exploded. By space. --zippy--", "[a-zA-Z]+", 0, 1)) ret = {@ret, x["0"]["match"]}; endfor return ret;
 => {"This", "is", "a", "string", "of", "words", "with", "punctuation", "that", "should", "be", "exploded", "By", "space", "zippy"}
+```
